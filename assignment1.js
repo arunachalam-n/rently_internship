@@ -54,3 +54,41 @@ const notInRoom = (suspect) => {
 notInRooms = _.map(newDevelopment, notInRoom);
 
 console.log(notInRooms)
+
+
+// Callbacks and Promise
+
+var fs = require('fs');
+
+// Callbacks
+
+const saves = (err) =>{
+    if (err) {throw err;}
+    console.log('Saved')
+};
+
+const doexists = (err) => {
+    if(err) {throw err;}
+    fs.appendFile('dummy.txt',' Hi Callbacks',saves);
+};
+
+fs.access('dummy.txt', fs.constants.F_OK, doexists);
+
+
+// Promise
+
+const $promise = new Promise ((resolve,reject)=>{
+    fs.access('dummy.txt', fs.constants.F_OK, (err) =>{
+        if(err){reject(err);}
+        
+        else{resolve('File exists');}
+    })  
+});
+
+$promise.then(()=>{
+    fs.appendFile('dummy.txt',' Hi Promise', (err) => {
+        if (err) throw err;
+    });
+}).then(() => {
+    console.log('Saved')
+});
