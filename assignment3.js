@@ -39,3 +39,9 @@ console.log(str.replace(/hello/gi,'Hi'))
 
 // 5. 
 
+function conversion(obj){
+    return JSON.stringify(obj)
+}
+
+math = {Internals_1:95,Internals_2:78,Internals_3:89,}
+coversion(math)
