@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Details</h2>
+<p>Enter name of the Student and the marks obtained</p>
+
+<form id="frm1">
+  Name: <input id="Name" type="text"><br>
+  Marks: <input id="Marks" type="text"><br><br>
+  <input type="button" onclick="$Student.Create()" value="Submit">
+  <input type="reset">
+</form>
+
+<h2>Fetch Details</h2>
+<form id="frm2" >
+    Name: <input id="fName" type="text"><br>
+    <input type="button" onclick="$Student.fetchDetails()" value="Submit">
+    <input type="reset">
+  </form>
+
+<p id='alert'></p>
+<script>
+
+class Student{
+    constructor(){
+        this.data = [];
+    }
+
+    Create(){
+        this.data.push({
+            name:document.getElementById("Name").value,
+            mark:document.getElementById("Marks").value
+        })
+    }
+
+    fetchDetails(){
+
+        const _name = document.getElementById("fName").value
+        const findStu = this.data.find(stu => {
+        return stu.name === _name
+        })
+
+        if (findStu) {
+            document.getElementById("alert").innerHTML = `Name : ${findStu.name}, Mark: ${findStu.mark}`
+        } else {
+            document.getElementById("alert").innerHTML = 'Not Found'
+        }
+    }
+}
+
+const $Student = new Student();
+
+</script>
+
+</body>
+</html>
