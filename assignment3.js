@@ -31,7 +31,11 @@ date = new Date(2021,06,16)
 a.push(num,str,obj,date)
 
 console.log(a)
+
 // 4. Replace 
 
-str = 'Hello Hello Hello Excuse me , yea you!!'
+str = 'Hello Hello Hello Excuse me , yeah you!!'
 console.log(str.replace(/hello/gi,'Hi'))
+
+// 5. 
+
