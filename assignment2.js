@@ -1,5 +1,5 @@
 // File_1 
-// This file constians the class 
+// This file contains the class 
 // File name classes
 
 class Student{
@@ -32,7 +32,17 @@ class Student{
     getMarks(){
         console.log(this.data)
     }
+
+    setMarks(stuName,setMar){
+        const _name = stuName
+        const findStu = this.data.find(stu => {
+            return stu.name === _name
+        }) 
+
+        findStu.mark = setMar;
+    }
 }
+
 
 module.exports = Student;
 
@@ -55,7 +65,7 @@ $Student.Create("Arun",70) // Pushes the data into the array
 $Student.fetchDetails("Vibav")
 // Output
 
-//Name : Vibav, Mark: 55
+// Name : Vibav, Mark: 55
 
 $Student.fetchDetails("Vaishnav")
 // Output
@@ -71,6 +81,11 @@ $Student.fetchDetails("Arun")
 
 // Name : Arun, Mark: 70
 
+$Student.fetchDetails("Hello")
+// Output
+
+// Not Found
+
 
 $Student.getMarks()
 // Output
@@ -85,3 +100,18 @@ $Student.getMarks()
 
 */ 
 
+$Student.setMarks("Vibav",95)
+
+$Student.getMarks()
+// Output
+
+/*
+
+[
+    { name: 'Vibav', mark: 95 }, // Mark is changed to 95
+    { name: 'Vaishnav', mark: 20 },
+    { name: 'Loku', mark: 100 },
+    { name: 'Arun', mark: 70 }
+  ]
+
+*/
